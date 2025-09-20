@@ -1,13 +1,16 @@
 from fastapi import FastAPI
 import uvicorn
+
 app = FastAPI()
+
+
 @app.get("/add")
 def add(x,y):
-    return x + y
+    return float(x) + float(y)
+
 @app.get("/subtract")
-def sub(x,y):
-   return x-y
+def subtract(x,y):
+    return float(x) - float(y)
 
 if __name__ == "__main__":
-  uvicorn.run(app,host="0.0.0.0",port=9321)
- 
+    uvicorn.run(app, host="0.0.0.0", port=9321)
